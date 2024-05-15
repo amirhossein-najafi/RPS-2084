@@ -1,6 +1,27 @@
 :root {
+  --purple: #3B2A9F;
+  --white : #ffffff;
 }
 
-* {
+*{
   box-sizing: border-box;
+  font-family: Poppins, serif;
 }
+body{
+  background-color: var(--purple);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.div1{
+  font-size: 36px;
+  font-weight: 700;
+  height: 100px;
+}
+.div2{
+  font-size: 36px;
+  font-weight: 700;
+}
+
