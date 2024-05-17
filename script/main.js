@@ -55,7 +55,7 @@ const start = () => {
                 computerScore.textContent = com_score.toString();
             }
         else {
-                result.innerText = 'Draw!';
+                result.innerText = 'Tie!';
                 turn.textContent = 'computer choose '+computer;
             }
     }
