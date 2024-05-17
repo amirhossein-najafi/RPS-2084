@@ -17,7 +17,7 @@ const start = () => {
     const paper = document.querySelector('.paper');
     const scissor = document.querySelector('.scissor');
     const user_action = [rock, paper, scissor];
-    const comp_action = ['rock', 'paper', 'scissors'];
+    const comp_action = ['rock', 'paper', 'scissor'];
     const playGame = () => {
         user_action.forEach(action => {
             action.addEventListener('click', () => {
@@ -37,44 +37,27 @@ const start = () => {
         const turn = document.querySelector('.turn');
 
 
-        if (user == 'rock') {
-            if (computer == 'paper') {
-                result.innerText = 'You Lost!';
-                turn.textContent = 'computer choose paper'
-                com_score++;
-                computerScore.textContent = com_score.toString();
-
-            } else {
-                result.innerText = 'You Won!'
-                turn.textContent = 'computer choose scissor'
-                user_score++;
-                userScore.textContent = user_score.toString();
-            }
-        } else if (user == 'scissor') {
-            if (computer == 'rock') {
-                result.innerText = 'You Lost!';
-                turn.textContent = 'computer choose rock'
-                com_score++;
-                computerScore.textContent = com_score.toString();
-            } else {
+        if (
+            (user === 'rock' && computer==='scissor') ||
+            (user === 'paper' && computer==='rock') ||
+            (user === 'scissor' && computer==='paper')) {
                 result.innerText = 'You Won!';
-                turn.textContent = 'computer choose paper'
+                turn.textContent = 'computer choose '+computer;
                 user_score++;
                 userScore.textContent = user_score.toString();
-            }
-        } else if (user == 'paper') {
-            if (computer == 'scissors') {
-                result.innerText = 'You Lost!';
-                turn.textContent = 'computer choose scissor'
+            } else if(
+            (user === 'rock' && computer==='paper') ||
+            (user === 'paper' && computer==='scissor') ||
+            (user === 'scissor' && computer==='rock')) {
+                result.innerText = 'You lost!'
+                turn.textContent = 'computer choose '+computer;
                 com_score++;
                 computerScore.textContent = com_score.toString();
-            } else {
-                result.innerText = 'You Won!';
-                turn.textContent = 'computer choose rock'
-                user_score++;
-                userScore.textContent = user_score.toString();
             }
-        }
+        else {
+                result.innerText = 'Draw!';
+                turn.textContent = 'computer choose '+computer;
+            }
     }
     playGame();
 }
